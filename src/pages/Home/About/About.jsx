@@ -14,10 +14,10 @@ const About = () => {
                     <h1 className="text-5xl font-bold mb-7">We are qualified & of experience in this field</h1>
                     <div className='text-[#737373] space-y-5'>
                         <p>
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.
                         </p>
                         <p>
-                            the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                            the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.
                         </p>
                     </div>
                     <button className="btn bg-[#FF3811] border-[#FF3811] text-white mr-5">Get More Info</button>
