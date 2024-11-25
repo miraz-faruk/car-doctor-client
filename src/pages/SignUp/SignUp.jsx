@@ -3,9 +3,9 @@ import { FcGoogle } from "react-icons/fc";
 import login from "../../assets/images/login/login.svg"
 import { Link } from "react-router-dom";
 
-const Login = () => {
-    
-    const handleLogin = event => {
+const SignUp = () => {
+
+    const handleSignUp = event => {
         event.preventDefault();
     }
     return (
@@ -15,8 +15,14 @@ const Login = () => {
                     <img src={login} alt="" />
                 </div>
                 <div className="w-1/2 px-16 py-8 border rounded-lg">
-                    <h1 className="text-4xl font-semibold text-center text-[#444444] mb-8">Login</h1>
-                    <form onSubmit={handleLogin}>
+                    <h1 className="text-4xl font-semibold text-center text-[#444444] mb-8">Sign Up</h1>
+                    <form onSubmit={handleSignUp}>
+                        <div className="form-control mb-3">
+                            <label className="label">
+                                <span className="label-text text-lg font-semibold text-[#444444]">Name</span>
+                            </label>
+                            <input type="text" name="name" placeholder="Your name" className="input input-bordered rounded-[10px]" required />
+                        </div>
                         <div className="form-control mb-3">
                             <label className="label">
                                 <span className="label-text text-lg font-semibold text-[#444444]">Email</span>
@@ -25,7 +31,7 @@ const Login = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-lg font-semibold text-[#444444]">Password</span>
+                                <span className="label-text text-lg font-semibold text-[#444444]">Confirm Password</span>
                             </label>
                             <input type="password" name="password" placeholder="Password" className="input input-bordered" required />
                             <label className="label">
@@ -33,7 +39,7 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-[#FF3811] text-white text-xl font-semibold">Login</button>
+                            <button className="btn bg-[#FF3811] text-white text-xl font-semibold">Sign Up</button>
                         </div>
                         <p className="font-medium text-lg text-[#444444] text-center my-5">or Sign In with</p>
                         <div className="flex justify-center gap-4">
@@ -42,11 +48,11 @@ const Login = () => {
                             <button className="bg-[#F5F5F8] rounded-full p-5 text-lg"><FcGoogle /></button>
                         </div>
                     </form>
-                    <p className="text-lg font-lg text-[#737373] text-center mt-6">New to Car Doctor? <Link className="text-[#FF3811]" to="/signup">Sign Up</Link></p>
+                    <p className="text-lg font-lg text-[#737373] text-center mt-6">Have an account? <Link className="text-[#FF3811]" to="/login">Login</Link></p>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default SignUp;
