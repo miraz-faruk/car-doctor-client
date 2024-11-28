@@ -23,7 +23,8 @@ const SignUp = () => {
                 console.log(user)
             })
             .catch(error => console.log(error))
-    }
+    };
+
     return (
         <div className="h-[782px] w-full mx-auto mb-10">
             <div className="flex flex-row mx-12 items-center justify-center">

@@ -1,7 +1,8 @@
 import { GoArrowRight } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
-    const { title, img, price } = service;
+    const { _id, title, img, price } = service;
     return (
         <div className="card bg-base-100 w-full border">
             <figure className="px-5 pt-5">
@@ -14,7 +15,9 @@ const ServiceCard = ({ service }) => {
                 <h2 className="text-2xl font-bold text-[#444444]">{title}</h2>
                 <div className="flex items-center text-[#FF3811] text-xl font-semibold">
                     <p>Price : ${price}</p>
-                    <button><GoArrowRight /></button>
+                    <Link to={`/service-details/${_id}`}>
+                        <button><GoArrowRight /></button>
+                    </Link>
                 </div>
             </div>
         </div>
