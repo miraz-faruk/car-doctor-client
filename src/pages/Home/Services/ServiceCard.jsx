@@ -1,5 +1,6 @@
 import { GoArrowRight } from "react-icons/go";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const ServiceCard = ({ service }) => {
     const { _id, title, img, price } = service;
@@ -15,7 +16,8 @@ const ServiceCard = ({ service }) => {
                 <h2 className="text-2xl font-bold text-[#444444]">{title}</h2>
                 <div className="flex items-center text-[#FF3811] text-xl font-semibold">
                     <p>Price : ${price}</p>
-                    <Link to={`/service-details/${_id}`}>
+                    <Link to={`/service-details/${_id}`}
+                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                         <button><GoArrowRight /></button>
                     </Link>
                 </div>
@@ -24,4 +26,12 @@ const ServiceCard = ({ service }) => {
     );
 };
 
+ServiceCard.propTypes = {
+    service: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        img: PropTypes.string.isRequired,
+        price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    }).isRequired,
+}
 export default ServiceCard;

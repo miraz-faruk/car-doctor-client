@@ -9,6 +9,21 @@ import logo from "../../assets/logo.svg";
 const ServiceDetails = () => {
 
     const service = useLoaderData();
+
+    // Check if service data is available
+    if (!service) {
+        return (
+            <div className="text-center mt-20">
+                <h1 className="text-4xl font-bold text-red-500">Service not found!</h1>
+                <p className="text-gray-500 mt-4">
+                    The requested service details could not be loaded.
+                </p>
+                <Link to="/" className="btn bg-[#FF3811] text-white mt-6">
+                    Go Back Home
+                </Link>
+            </div>
+        );
+    }
     const { title, description, facility, price } = service;
     return (
         <div>
@@ -130,7 +145,7 @@ const ServiceDetails = () => {
                     </div>
                     <h1 className="text-4xl font-bold">Price ${price}</h1>
                     <div>
-                        <Link to="/checkout">
+                        <Link to={`/checkout/${service._id}`}>
                             <button className="w-full bg-[#FF3811] text-white text-lg font-semibold py-4 rounded-md">Proceed Checkout</button></Link>
                     </div>
                 </div>

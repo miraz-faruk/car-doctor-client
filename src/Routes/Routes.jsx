@@ -4,6 +4,9 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
+import CheckOut from "../pages/CheckOut/CheckOut";
+import Services from "../pages/Home/Services/Services";
+import About from "../pages/Home/About/About";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +18,10 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
+                path: "/about",
+                element: <About></About>
+            },
+            {
                 path: "/login",
                 element: <Login></Login>
             },
@@ -23,8 +30,17 @@ const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
+                path: "/services",
+                element: <Services></Services>
+            },
+            {
                 path: "/service-details/:id",
                 element: <ServiceDetails></ServiceDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5001/services/${params.id}`)
+            },
+            {
+                path: "/checkout/:id",
+                element: <CheckOut></CheckOut>,
                 loader: ({ params }) => fetch(`http://localhost:5001/services/${params.id}`)
             }
         ]
