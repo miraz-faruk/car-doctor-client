@@ -41,7 +41,7 @@ const CheckOut = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if(data.insertedId){
+                if (data.insertedId) {
                     alert('service book successfully')
                 }
             })
@@ -93,7 +93,7 @@ const CheckOut = () => {
                     </div>
 
                     <div className="form-control mt-6">
-                        <button className="btn bg-[#FF3811] text-white hover:bg-[#FF3811]">Login</button>
+                        <button className="btn bg-[#FF3811] text-white hover:bg-[#FF3811]">Booking Confirm</button>
                     </div>
                 </form>
 
