@@ -1,5 +1,4 @@
-
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import SharedBanner from "../../components/SharedBanner";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -7,7 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const CheckOut = () => {
     const service = useLoaderData();
-    const { _id, title, price } = service;
+    const { _id, title, price, img } = service;
     const { user } = useContext(AuthContext);
 
     const handleBookService = event => {
@@ -20,7 +19,8 @@ const CheckOut = () => {
         const price = form.price.value;
         const date = form.date.value;
         const phone = form.phone.value;
-        const order = {
+        const booking = {
+            img,
             customerName: name,
             email,
             service,
@@ -29,7 +29,22 @@ const CheckOut = () => {
             date,
             phone: phone
         }
-        console.log(order);
+        console.log(booking);
+
+        fetch('http://localhost:5001/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.insertedId){
+                    alert('service book successfully')
+                }
+            })
     }
     return (
         <div>
