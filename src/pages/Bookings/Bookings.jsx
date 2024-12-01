@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import BookingsRow from "./BookingsRow";
+import axios from "axios";
 
 
 const Bookings = () => {
@@ -10,9 +11,13 @@ const Bookings = () => {
 
     const url = `http://localhost:5001/bookings?email=${user?.email}`
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setBookings(data))
+        axios.get(url, { withCredentials: true })
+            .then(res => {
+                setBookings(res.data);
+            })
+        // fetch(url)
+        //     .then(res => res.json())
+        //     .then(data => setBookings(data))
     }, [url]);
 
     const handleDelete = id => {
@@ -46,7 +51,7 @@ const Bookings = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     if (data.modifiedCount > 0) {
-                        const updatedBookings = bookings.map(booking => 
+                        const updatedBookings = bookings.map(booking =>
                             booking._id === id ? { ...booking, status: 'confirm' } : booking
                         );
                         setBookings(updatedBookings);
