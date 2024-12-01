@@ -23,8 +23,11 @@ const NavBar = () => {
         <li><Link to="/blog">Blog</Link></li>
         <li><Link to="/contact">Contact</Link></li>
         {
-            user?.email ? <li><button onClick={handleLogOut}>Log Out</button></li>
-            : <li><Link to="/login">Login</Link></li>
+            user?.email ? <>
+                <li><Link to="/bookings">My Bookings</Link></li>
+                <li><button onClick={handleLogOut}>Log Out</button></li>
+            </>
+                : <li><Link to="/login">Login</Link></li>
         }
     </>
     return (
