@@ -42,14 +42,12 @@ const router = createBrowserRouter([
             },
             {
                 path: "/checkout/:id",
-                element: <CheckOut></CheckOut>,
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5001/services/${params.id}`)
             },
             {
                 path: "/bookings",
-                element: <PrivateRoute>
-                    <Bookings></Bookings>
-                </PrivateRoute>
+                element: <PrivateRoute><Bookings></Bookings></PrivateRoute>
             }
         ]
     },
